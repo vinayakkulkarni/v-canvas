@@ -1,0 +1,39 @@
+{
+  "name": "@vinayakkulkarni/canvas-module",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "prebuild": "bun postinstall",
+    "postinstall": "nuxi prepare",
+    "nuxt:dev": "nuxi dev",
+    "build": "tsup src/module.ts --format cjs,esm --dts --tsconfig ./tsconfig.json",
+    "dev": "tsup src/module.ts --format cjs,esm --dts --watch --tsconfig ./tsconfig.json",
+    "lint": "bun run lint:eslint; bun run lint:prettier",
+    "lint:eslint": "eslint .",
+    "lint:eslint:fix": "eslint . --fix",
+    "lint:prettier": "prettier --check \"{,!(node_modules|dist)/**/}*.{js,ts}\"",
+    "lint:prettier:fix": "prettier --write \"{,!(node_modules|dist)/**/}*.{js,ts}\"",
+    "test": "bun test"
+  },
+  "peerDependencies": {
+    "nuxt": "^3.12.4",
+    "vite": "^5.4.0"
+  },
+  "dependencies": {
+    "@nuxt/kit": "^3.12.4",
+    "@vinayakkulkarni/canvas-client": "workspace:*"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.9.0",
+    "@nuxt/module-builder": "^0.5.5",
+    "@types/node": "^22.2.0",
+    "@typescript-eslint/eslint-plugin": "^8.1.0",
+    "@typescript-eslint/parser": "^8.1.0",
+    "eslint": "^9.9.0",
+    "nuxt": "^3.12.4",
+    "tsup": "^8.2.4",
+    "typescript": "^5.5.4"
+  }
+}

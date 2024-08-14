@@ -1,0 +1,29 @@
+{
+  "name": "@vinayakkulkarni/canvas-client",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts --tsconfig ./tsconfig.json",
+    "dev": "tsup src/index.ts --format cjs,esm --dts --watch --tsconfig ./tsconfig.json",
+    "lint": "bun run lint:eslint; bun run lint:prettier",
+    "lint:eslint": "eslint .",
+    "lint:eslint:fix": "eslint . --fix",
+    "lint:prettier": "prettier --check \"{,!(node_modules|dist)/**/}*.{js,ts}\"",
+    "lint:prettier:fix": "prettier --write \"{,!(node_modules|dist)/**/}*.{js,ts}\"",
+    "test": "bun test"
+  },
+  "dependencies": {
+    "@dscvr-one/canvas-client-sdk": "^1.0.7",
+    "vue": "^3.4.37"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.9.0",
+    "@typescript-eslint/eslint-plugin": "^8.1.0",
+    "@typescript-eslint/parser": "^8.1.0",
+    "eslint": "^9.9.0",
+    "tsup": "^8.2.4",
+    "typescript": "^5.5.4"
+  }
+}
