@@ -1,9 +1,16 @@
 {
   "name": "@vinayakkulkarni/canvas-module",
   "version": "0.0.1",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "description": "DSCVR Canvas module for your awesome Nuxt app(s)",
+  "main": "dist/module.js",
+  "module": "dist/module.mjs",
+  "types": "dist/module.d.ts",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "prebuild": "bun postinstall",
     "postinstall": "nuxi prepare",
@@ -35,5 +42,30 @@
     "nuxt": "^3.12.4",
     "tsup": "^8.2.4",
     "typescript": "^5.5.4"
-  }
+  },
+  "keywords": [
+    "Nuxt.js",
+    "Canvas",
+    "DSCVR Canvas",
+    "DSCVR Canvas Store",
+    "Nuxt Canvas",
+    "Nuxt DSCVR Canvas Module",
+    "Nuxt Canvas Module"
+  ],
+  "author": {
+    "name": "Vinayak Kulkarni",
+    "email": "inbox.vinayak@gmail.com",
+    "url": "https://vinayakkulkarni.dev"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vinayakkulkarni/v-canvas.git"
+  },
+  "private": false,
+  "sideEffects": false,
+  "bugs": {
+    "url": "https://github.com/vinayakkulkarni/v-canvas/issues"
+  },
+  "homepage": "https://github.com/vinayakkulkarni/v-canvas#readme"
 }

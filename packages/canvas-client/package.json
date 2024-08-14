@@ -1,9 +1,22 @@
 {
   "name": "@vinayakkulkarni/canvas-client",
   "version": "0.0.1",
+  "description": "DSCVR Canvas store for using within your awesome Vue apps",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts --tsconfig ./tsconfig.json",
     "dev": "tsup src/index.ts --format cjs,esm --dts --watch --tsconfig ./tsconfig.json",
@@ -25,5 +38,29 @@
     "eslint": "^9.9.0",
     "tsup": "^8.2.4",
     "typescript": "^5.5.4"
-  }
+  },
+  "keywords": [
+    "Vue.js",
+    "DSCVR-Canvas",
+    "Canvas App",
+    "Canvas Store",
+    "Vue Canvas",
+    "Vue DSCVR Canvas"
+  ],
+  "author": {
+    "name": "Vinayak Kulkarni",
+    "email": "inbox.vinayak@gmail.com",
+    "url": "https://vinayakkulkarni.dev"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vinayakkulkarni/v-canvas.git"
+  },
+  "private": false,
+  "sideEffects": false,
+  "bugs": {
+    "url": "https://github.com/vinayakkulkarni/v-canvas/issues"
+  },
+  "homepage": "https://github.com/vinayakkulkarni/v-canvas#readme"
 }
