@@ -1,6 +1,6 @@
 {
   "name": "@vinayakkulkarni/canvas-client",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "DSCVR Canvas store for using within your awesome Vue apps",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
