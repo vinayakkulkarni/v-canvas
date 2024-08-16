@@ -1,17 +1,19 @@
 {
   "name": "@vinayakkulkarni/canvas-client",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "DSCVR Canvas store for using within your awesome Vue apps",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      },
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.mjs"
     },
     "./package.json": "./package.json"
   },

@@ -1,6 +1,6 @@
 {
   "name": "@vinayakkulkarni/canvas-module",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "DSCVR Canvas module for your awesome Nuxt app(s)",
   "exports": {
     ".": {
@@ -46,7 +46,7 @@
   },
   "dependencies": {
     "@nuxt/kit": "^3.12.4",
-    "@vinayakkulkarni/canvas-client": "0.0.4",
+    "@vinayakkulkarni/canvas-client": "0.0.5",
     "defu": "^6.1.4"
   },
   "devDependencies": {
