@@ -25,7 +25,8 @@
     "lint:eslint:fix": "eslint . --fix",
     "lint:prettier": "prettier --check \"{,!(node_modules|dist)/**/}*.{js,ts}\"",
     "lint:prettier:fix": "prettier --write \"{,!(node_modules|dist)/**/}*.{js,ts}\"",
-    "test": "bun test"
+    "test": "bun test",
+    "release": "release-it"
   },
   "dependencies": {
     "@dscvr-one/canvas-client-sdk": "^1.0.7",
@@ -38,6 +39,9 @@
     "eslint": "^9.9.0",
     "tsup": "^8.2.4",
     "typescript": "^5.5.4"
+  },
+  "release-it": {
+    "git": false
   },
   "keywords": [
     "Vue.js",

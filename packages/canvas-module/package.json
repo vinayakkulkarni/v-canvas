@@ -22,7 +22,8 @@
     "lint:eslint:fix": "eslint . --fix",
     "lint:prettier": "prettier --check \"{,!(node_modules|dist)/**/}*.{js,ts}\"",
     "lint:prettier:fix": "prettier --write \"{,!(node_modules|dist)/**/}*.{js,ts}\"",
-    "test": "bun test"
+    "test": "bun test",
+    "release": "release-it"
   },
   "peerDependencies": {
     "nuxt": "^3.12.4",
@@ -30,7 +31,7 @@
   },
   "dependencies": {
     "@nuxt/kit": "^3.12.4",
-    "@vinayakkulkarni/canvas-client": "workspace:*"
+    "@vinayakkulkarni/canvas-client": "^0.0.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
@@ -42,6 +43,17 @@
     "nuxt": "^3.12.4",
     "tsup": "^8.2.4",
     "typescript": "^5.5.4"
+  },
+  "release-it": {
+    "git": false,
+    "plugins": {
+      "@release-it/bumper": {
+        "out": {
+          "file": "package.json",
+          "path": "dependencies.@vinayakkulkarni/canvas-client"
+        }
+      }
+    }
   },
   "keywords": [
     "Nuxt.js",

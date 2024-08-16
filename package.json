@@ -4,7 +4,8 @@
   "private": true,
   "type": "module",
   "workspaces": [
-    "packages/*"
+    "packages/canvas-client",
+    "packages/canvas-module"
   ],
   "scripts": {
     "prepare:types": "cd packages/canvas-module && nuxi prepare",
@@ -12,12 +13,14 @@
     "dev": "bun run --parallel --cwd packages/canvas-client dev --cwd packages/canvas-module dev",
     "lint": "bun run --cwd packages/canvas-client lint && bun run --cwd packages/canvas-module lint",
     "test": "bun run --cwd packages/canvas-client test && bun run --cwd packages/canvas-module test",
+    "release": "npm run release --workspaces && release-it",
     "prepare": "is-ci || husky"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.4.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@eslint/js": "^9.9.0",
+    "@release-it/bumper": "^6.0.1",
     "@types/bun": "^1.1.6",
     "@types/node": "^22.2.0",
     "@typescript-eslint/eslint-plugin": "^8.1.0",
@@ -30,5 +33,10 @@
     "tsup": "^8.2.4",
     "typescript": "^5.5.4"
   },
-  "packageManager": "bun@1.1.22"
+  "packageManager": "bun@1.1.22",
+  "release-it": {
+    "git": {
+      "requireCleanWorkingDir": false
+    }
+  }
 }
