@@ -21,6 +21,7 @@
     "@commitlint/config-conventional": "^19.2.2",
     "@eslint/js": "^9.9.0",
     "@release-it/bumper": "^6.0.1",
+    "@release-it/conventional-changelog": "^8.0.1",
     "@types/bun": "^1.1.6",
     "@types/node": "^22.2.0",
     "@typescript-eslint/eslint-plugin": "^8.1.0",
@@ -33,10 +34,5 @@
     "tsup": "^8.2.4",
     "typescript": "^5.5.4"
   },
-  "packageManager": "bun@1.1.22",
-  "release-it": {
-    "git": {
-      "requireCleanWorkingDir": false
-    }
-  }
+  "packageManager": "bun@1.1.22"
 }

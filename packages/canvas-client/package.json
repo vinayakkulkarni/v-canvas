@@ -28,6 +28,10 @@
     "test": "bun test",
     "release": "release-it"
   },
+  "peerDependencies": {
+    "@dscvr-one/canvas-client-sdk": "^1.0.7",
+    "vue": "^3.4.37"
+  },
   "dependencies": {
     "@dscvr-one/canvas-client-sdk": "^1.0.7",
     "vue": "^3.4.37"
@@ -39,9 +43,6 @@
     "eslint": "^9.9.0",
     "tsup": "^8.2.4",
     "typescript": "^5.5.4"
-  },
-  "release-it": {
-    "git": false
   },
   "keywords": [
     "Vue.js",

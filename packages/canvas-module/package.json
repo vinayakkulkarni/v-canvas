@@ -44,17 +44,6 @@
     "tsup": "^8.2.4",
     "typescript": "^5.5.4"
   },
-  "release-it": {
-    "git": false,
-    "plugins": {
-      "@release-it/bumper": {
-        "out": {
-          "file": "package.json",
-          "path": "dependencies.@vinayakkulkarni/canvas-client"
-        }
-      }
-    }
-  },
   "keywords": [
     "Nuxt.js",
     "Canvas",
