@@ -25,7 +25,7 @@
   },
   "hooks": {
     "before:init": ["bun run lint:knip", "bun run lint"],
-    "before:npm:release": ["bun run build"],
+    "after:bump": ["bun run build"],
     "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
   }
 }
