@@ -1,0 +1,75 @@
+<script setup lang="ts">
+  const { client, user, isReady, initializeCanvas, cleanupCanvas } =
+    useCanvas();
+
+  const resizeObserver = ref<ResizeObserver | null>(null);
+
+  onMounted(async () => {
+    await initializeCanvas();
+    if (client.value) {
+      resizeObserver.value = new ResizeObserver(() => client.value?.resize());
+      resizeObserver.value.observe(document.body);
+    }
+  });
+
+  onUnmounted(() => {
+    if (resizeObserver.value) {
+      resizeObserver.value.disconnect();
+    }
+    cleanupCanvas();
+  });
+
+  const openUserProfile = () => {
+    if (!client.value || !user.value) return;
+    const url = `https://dscvr.one/u/${user.value.username}`;
+    client.value.openLink(url);
+  };
+  const setBodyHeight = (height: number) => {
+    document.body.style.height = height ? `${height}px` : '';
+  };
+</script>
+
+<template>
+  <div v-if="isReady">
+    <div class="p-4 grid grid-cols-1 gap-3">
+      <user-info v-if="user" :user="user" @open="openUserProfile" />
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <button
+          v-for="height in [1000, 1500, 0]"
+          :key="height"
+          type="button"
+          class="text-white font-bold py-2 px-4 rounded bg-gray-500 hover:bg-gray-400 hover:border-gray-500"
+          @click="setBodyHeight(height)"
+        >
+          {{ height ? `Set height to ${height}px` : 'Reset height' }}
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    v-else
+    class="w-dvw h-dvh flex flex-col gap-y-4 items-center justify-center"
+  >
+    <svg
+      class="animate-spin size-12 text-white"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+    >
+      <circle
+        class="opacity-25"
+        cx="12"
+        cy="12"
+        r="10"
+        stroke="currentColor"
+        stroke-width="4"
+      ></circle>
+      <path
+        class="opacity-75"
+        fill="currentColor"
+        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+      ></path>
+    </svg>
+    Loading canvas...
+  </div>
+</template>

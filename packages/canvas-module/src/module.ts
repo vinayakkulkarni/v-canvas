@@ -1,40 +1,56 @@
 import {
-  defineNuxtModule,
+  addImports,
   addPlugin,
   createResolver,
-  addImports,
+  defineNuxtModule,
   useLogger,
 } from '@nuxt/kit';
-import { fileURLToPath } from 'url';
+import { defu } from 'defu';
 
-const NAME = 'nuxt-canvas';
+const NAME = 'nuxt-canvas' as const;
 
-export default defineNuxtModule({
+export type ModuleOptions = Record<string, unknown>;
+
+export default defineNuxtModule<ModuleOptions>({
   meta: {
     name: NAME,
-    configKey: 'canvas',
+    configKey: NAME,
   },
-  setup(_userOptions, nuxt) {
+  setup(userOptions, nuxt) {
     const logger = useLogger(NAME);
-    logger.info(`Adding ${NAME} module...`, _userOptions);
-
     const { resolve } = createResolver(import.meta.url);
-    const runtimeDir = fileURLToPath(new URL('./runtime', import.meta.url));
 
-    // 1. Add plugin & middleware
-    addPlugin(resolve(runtimeDir, 'plugin'));
+    logger.info(`Adding ${NAME} module...`, userOptions);
+    // 1. Set up runtime configuration
+    const options = defu(
+      nuxt.options.runtimeConfig.public[NAME],
+      userOptions,
+      {},
+    );
+    nuxt.options.runtimeConfig.public[NAME] = options;
 
-    // 2. Add composables
+    // 3. Add composables
     addImports([
       {
         name: 'useCanvas',
-        as: 'useCanvas',
-        from: resolve('./runtime/composables/use-canvas'),
+        from: resolve('./runtime/composables/useCanvas'),
       },
     ]);
 
-    // 3. Add runtime dir for transpilation
-    nuxt.options.build.transpile.push(runtimeDir);
+    // 4. Add types
+    const filename = `types/${NAME}.d.ts`;
+
+    nuxt.hook('prepare:types', (options) => {
+      options.references.push({
+        path: resolve(nuxt.options.buildDir, filename),
+      });
+    });
+
+    // 5. Add plugin & middleware
+    addPlugin({
+      src: resolve('runtime/plugin'),
+      mode: 'client',
+    });
 
     logger.success(`Added ${NAME} module successfully.`);
   },

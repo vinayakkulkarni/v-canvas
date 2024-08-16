@@ -9,10 +9,10 @@
     "baseUrl": ".",
     "paths": {
       "#imports": [
-        "./node_modules/nuxt/app.d.ts"
+        "../../node_modules/nuxt/app.d.ts"
       ],
       "#app": [
-        "./node_modules/nuxt/dist/app"
+        "../../node_modules/nuxt/dist/app"
       ]
     }
   },
@@ -20,7 +20,11 @@
     "src/**/*.ts"
   ],
   "exclude": [
-    "node_modules",
-    "dist"
+    "**/node_modules",
+    "**/dist",
+    "**/playground",
+    "**/playgrounds",
+    "**/docs",
+    "**/test/fixtures/**"
   ]
 }

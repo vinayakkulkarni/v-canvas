@@ -2,33 +2,42 @@
   "name": "@vinayakkulkarni/canvas-module",
   "version": "0.0.2",
   "description": "DSCVR Canvas module for your awesome Nuxt app(s)",
-  "main": "dist/module.js",
-  "module": "dist/module.mjs",
-  "types": "dist/module.d.ts",
-  "files": [
-    "dist"
-  ],
   "exports": {
     ".": {
-      "import": "./dist/module.mjs",
-      "require": "./dist/module.js"
-    },
-    "./package.json": "./package.json"
+      "require": {
+        "types": "./dist/module.d.cts",
+        "default": "./dist/module.cjs"
+      },
+      "import": {
+        "types": "./dist/module.d.mts",
+        "default": "./dist/module.mjs"
+      },
+      "types": "./dist/module.d.ts",
+      "default": "./dist/module.mjs"
+    }
   },
-  "publishConfig": {
-    "access": "public"
-  },
+  "main": "./dist/module.cjs",
+  "module": "./dist/module.mjs",
+  "types": "./dist/types.d.ts",
+  "files": [
+    "dist",
+    "*.d.ts",
+    "*.cjs",
+    "*.mjs"
+  ],
   "scripts": {
     "prebuild": "bun postinstall",
     "postinstall": "nuxi prepare",
-    "build": "tsup src/module.ts --format cjs,esm --dts --tsconfig ./tsconfig.json",
-    "dev": "tsup src/module.ts --format cjs,esm --dts --watch --tsconfig ./tsconfig.json",
+    "build:stub": "nuxt-build-module --stub",
+    "build:module": "nuxt-build-module",
+    "build": "rimraf dist && bun build:module",
     "lint": "bun run lint:eslint; bun run lint:prettier",
     "lint:eslint": "eslint .",
     "lint:eslint:fix": "eslint . --fix",
     "lint:prettier": "prettier --check \"{,!(node_modules|dist|.nuxt)/**/}*.{js,ts}\"",
     "lint:prettier:fix": "prettier --write \"{,!(node_modules|dist|.nuxt)/**/}*.{js,ts}\"",
     "test": "bun test",
+    "dev": "nuxi dev",
     "release": "release-it"
   },
   "peerDependencies": {
@@ -37,18 +46,12 @@
   },
   "dependencies": {
     "@nuxt/kit": "^3.12.4",
-    "@vinayakkulkarni/canvas-client": "0.0.2"
+    "@vinayakkulkarni/canvas-client": "0.0.2",
+    "defu": "^6.1.4"
   },
   "devDependencies": {
-    "@eslint/js": "^9.9.0",
     "@nuxt/module-builder": "^0.5.5",
-    "@types/node": "^22.2.0",
-    "@typescript-eslint/eslint-plugin": "^8.1.0",
-    "@typescript-eslint/parser": "^8.1.0",
-    "eslint": "^9.9.0",
-    "nuxt": "^3.12.4",
-    "tsup": "^8.2.4",
-    "typescript": "^5.5.4"
+    "nuxt": "^3.12.4"
   },
   "keywords": [
     "Nuxt.js",
@@ -65,6 +68,7 @@
     "url": "https://vinayakkulkarni.dev"
   },
   "license": "MIT",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vinayakkulkarni/v-canvas.git"
