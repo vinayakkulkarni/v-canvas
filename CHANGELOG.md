@@ -1,5 +1,7 @@
 # Changelog
 
+## [0.1.1](https://github.com/vinayakkulkarni/v-canvas/compare/0.1.0...0.1.1) (2024-08-16)
+
 # 0.1.0 (2024-08-16)
 
 

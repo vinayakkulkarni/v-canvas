@@ -1,6 +1,9 @@
 {
   "$schema": "https://unpkg.com/release-it@17/schema/release-it.json",
   "git": false,
+  "hooks": {
+    "after:bump": ["bun run build"]
+  },
   "plugins": {
     "@release-it/bumper": {
       "out": {

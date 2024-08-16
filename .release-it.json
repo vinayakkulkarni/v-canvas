@@ -24,7 +24,6 @@
     }
   },
   "hooks": {
-    "after:bump": ["bun run build"],
     "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
   }
 }
