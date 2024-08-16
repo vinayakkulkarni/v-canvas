@@ -1,4 +1,8 @@
-export default {
+/**
+ * @see https://prettier.io/docs/en/configuration.html
+ * @type {import("prettier").Config}
+ */
+const config = {
   $schema: 'http://json.schemastore.org/prettierrc',
   semi: true,
   arrowParens: 'always',
@@ -12,3 +16,5 @@ export default {
   vueIndentScriptAndStyle: true,
   endOfLine: 'lf',
 };
+
+export default config;

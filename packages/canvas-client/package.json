@@ -12,7 +12,8 @@
     ".": {
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "publishConfig": {
     "access": "public"
@@ -23,17 +24,17 @@
     "lint": "bun run lint:eslint; bun run lint:prettier",
     "lint:eslint": "eslint .",
     "lint:eslint:fix": "eslint . --fix",
-    "lint:prettier": "prettier --check \"{,!(node_modules|dist)/**/}*.{js,ts}\"",
-    "lint:prettier:fix": "prettier --write \"{,!(node_modules|dist)/**/}*.{js,ts}\"",
+    "lint:prettier": "prettier --check \"{,!(node_modules|dist|.nuxt)/**/}*.{js,ts}\"",
+    "lint:prettier:fix": "prettier --write \"{,!(node_modules|dist|.nuxt)/**/}*.{js,ts}\"",
     "test": "bun test",
     "release": "release-it"
   },
   "peerDependencies": {
-    "@dscvr-one/canvas-client-sdk": "^1.0.7",
+    "@dscvr-one/canvas-client-sdk": "^1.1.0",
     "vue": "^3.4.37"
   },
   "dependencies": {
-    "@dscvr-one/canvas-client-sdk": "^1.0.7",
+    "@dscvr-one/canvas-client-sdk": "^1.1.0",
     "vue": "^3.4.37"
   },
   "devDependencies": {

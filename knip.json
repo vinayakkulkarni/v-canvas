@@ -1,0 +1,13 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "workspaces": {
+    "packages/canvas-client": {
+      "entry": ["src/index.ts"],
+      "project": "**/*.ts"
+    },
+    "packages/canvas-module": {
+      "entry": ["src/module.ts", "src/runtime/**/*.ts"],
+      "project": "**/*.ts"
+    }
+  }
+}

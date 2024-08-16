@@ -13,7 +13,7 @@ export interface CanvasStore {
 }
 
 const validateHostMessage = async (
-  _message: CanvasInterface.Lifecycle.InitResponseMessage,
+  _message: CanvasInterface.Lifecycle.InitResponse,
 ): Promise<boolean> => {
   // Implement your validation logic here
   return true; // Placeholder return
