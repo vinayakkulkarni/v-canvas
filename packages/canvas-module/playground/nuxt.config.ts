@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-undef
 export default defineNuxtConfig({
   app: {
     head: {
@@ -34,6 +35,6 @@ export default defineNuxtConfig({
     '@nuxtjs/fontaine',
     // Local module(s)
     '../src/module',
-    // "@example/nuxt-canvas"
+    // '@vinayakkulkarni/canvas-module',
   ],
 });

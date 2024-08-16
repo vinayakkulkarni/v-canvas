@@ -49,7 +49,7 @@ export default defineNuxtModule<ModuleOptions>({
     // 5. Add plugin & middleware
     addPlugin({
       src: resolve('runtime/plugin'),
-      mode: 'client',
+      mode: 'all',
     });
 
     logger.success(`Added ${NAME} module successfully.`);

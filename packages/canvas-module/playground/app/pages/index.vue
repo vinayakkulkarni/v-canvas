@@ -4,8 +4,11 @@
 
   const resizeObserver = ref<ResizeObserver | null>(null);
 
-  onMounted(async () => {
+  onBeforeMount(async () => {
     await initializeCanvas();
+  });
+
+  onMounted(async () => {
     if (client.value) {
       resizeObserver.value = new ResizeObserver(() => client.value?.resize());
       resizeObserver.value.observe(document.body);
@@ -32,7 +35,9 @@
 <template>
   <div v-if="isReady">
     <div class="p-4 grid grid-cols-1 gap-3">
-      <user-info v-if="user" :user="user" @open="openUserProfile" />
+      <template v-if="user">
+        <user-info :user="user" @open="openUserProfile" />
+      </template>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <button
           v-for="height in [1000, 1500, 0]"
