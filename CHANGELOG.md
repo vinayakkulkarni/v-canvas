@@ -1,5 +1,12 @@
 # Changelog
 
+# [0.2.0](https://github.com/vinayakkulkarni/v-canvas/compare/0.1.2...0.2.0) (2024-08-16)
+
+
+### Features
+
+* handle plugin installation error ([bd2c563](https://github.com/vinayakkulkarni/v-canvas/commit/bd2c563921be1c7a57aeda37b337ebf177aca160))
+
 ## [0.1.2](https://github.com/vinayakkulkarni/v-canvas/compare/0.1.1...0.1.2) (2024-08-16)
 
 
