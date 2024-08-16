@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/vinayakkulkarni/v-canvas/compare/0.1.1...0.1.2) (2024-08-16)
+
+
+### Bug Fixes
+
+* package exports ([25e9320](https://github.com/vinayakkulkarni/v-canvas/commit/25e9320221e8f989e0347cc35acdeaad9df025af))
+
 ## [0.1.1](https://github.com/vinayakkulkarni/v-canvas/compare/0.1.0...0.1.1) (2024-08-16)
 
 # 0.1.0 (2024-08-16)

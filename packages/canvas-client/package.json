@@ -1,6 +1,6 @@
 {
   "name": "@vinayakkulkarni/canvas-client",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "DSCVR Canvas store for using within your awesome Vue apps",
   "exports": {
     ".": {
