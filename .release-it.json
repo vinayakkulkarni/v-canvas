@@ -10,7 +10,13 @@
   },
   "github": {
     "release": true,
-    "draft": true
+    "draft": true,
+    "autoGenerate": true,
+    "comments": {
+      "submit": true,
+      "issue": ":rocket: _This issue has been resolved in v${version}. See [${releaseName}](${releaseUrl}) for release notes._",
+      "pr": ":rocket: _This pull request is included in v${version}. See [${releaseName}](${releaseUrl}) for release notes._"
+    }
   },
   "npm": {
     "publish": false,
@@ -24,6 +30,6 @@
     }
   },
   "hooks": {
-    "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
+    "after:release": "git push origin HEAD"
   }
 }
