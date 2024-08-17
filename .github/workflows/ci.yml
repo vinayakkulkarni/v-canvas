@@ -1,0 +1,39 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+  pull_request:
+    branches:
+      - main
+      - dev
+
+permissions:
+  checks: write
+  contents: read
+
+jobs:
+  ci:
+    name: 'CI'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository 🎉
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Setup bun env 🐰
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies 🚀
+        run: bun install
+
+      - name: Run linter(s) 👀
+        run: bun run lint
+
+      - name: Build the package 🎉
+        run: bun run build
