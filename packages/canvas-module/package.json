@@ -42,7 +42,7 @@
   },
   "peerDependencies": {
     "nuxt": "^3.12.4",
-    "vite": "^5.4.0"
+    "vite": "^5.4.1"
   },
   "dependencies": {
     "@nuxt/kit": "^3.12.4",
@@ -50,8 +50,16 @@
     "defu": "^6.1.4"
   },
   "devDependencies": {
+    "@eslint/js": "^9.9.0",
     "@nuxt/module-builder": "^0.5.5",
-    "nuxt": "^3.12.4"
+    "@release-it/bumper": "^6.0.1",
+    "@typescript-eslint/eslint-plugin": "^8.1.0",
+    "@typescript-eslint/parser": "^8.1.0",
+    "eslint": "^9.9.0",
+    "nuxt": "^3.12.4",
+    "prettier": "^3.3.3",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.5.4"
   },
   "keywords": [
     "Nuxt.js",

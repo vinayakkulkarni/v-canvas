@@ -8,7 +8,12 @@
     },
     "packages/canvas-store": {
       "entry": ["src/index.ts"],
-      "project": "**/*.ts"
+      "project": "**/*.ts",
+      "ignoreDependencies": [
+        "@eslint/js",
+        "@typescript-eslint/eslint-plugin",
+        "@typescript-eslint/parser"
+      ]
     },
     "packages/canvas-module": {
       "entry": ["src/module.ts", "src/runtime/**/*.ts"],
@@ -18,16 +23,19 @@
         "playground/nuxt.config.ts",
         "playground/uno.config.ts"
       ],
-      "ignoreDependencies": ["@nuxt/schema"]
+      "ignoreDependencies": [
+        "@eslint/js",
+        "@typescript-eslint/eslint-plugin",
+        "@typescript-eslint/parser",
+        "@nuxt/schema"
+      ]
     }
   },
   "ignoreDependencies": [
     "@release-it/bumper",
-    "@release-it/conventional-changelog",
-    "@vinayakkulkarni/prettier-config-vue",
-    "tsup"
+    "@release-it/conventional-changelog"
   ],
-  "ignoreBinaries": ["release-it", "x", "rimraf"],
+  "ignoreBinaries": ["release-it", "x"],
   "rules": {
     "unlisted": "error"
   }
