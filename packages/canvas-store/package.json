@@ -43,11 +43,11 @@
   },
   "peerDependencies": {
     "@dscvr-one/canvas-client-sdk": "^1.1.0",
-    "vue": "^3.4.37"
+    "vue": "^3.4.38"
   },
   "dependencies": {
     "@dscvr-one/canvas-client-sdk": "^1.1.0",
-    "vue": "^3.4.37"
+    "vue": "^3.4.38"
   },
   "devDependencies": {
     "tsup": "^8.2.4",
