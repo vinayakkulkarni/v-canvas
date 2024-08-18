@@ -8,7 +8,7 @@
     "@release-it/bumper": {
       "out": {
         "file": "package.json",
-        "path": "dependencies.@vinayakkulkarni/canvas-client"
+        "path": "dependencies.@vinayakkulkarni/canvas-store"
       }
     }
   }

@@ -1,5 +1,5 @@
 import type { ModuleOptions } from './module';
-import type { CanvasStore } from '@vinayakkulkarni/canvas-client';
+import type { CanvasStore } from '@vinayakkulkarni/canvas-store';
 
 declare module '@nuxt/schema' {
   interface RuntimeConfig {

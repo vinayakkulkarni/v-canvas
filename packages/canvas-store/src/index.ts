@@ -3,14 +3,14 @@ import { ref } from 'vue';
 import type { CanvasInterface } from '@dscvr-one/canvas-client-sdk';
 import type { Ref } from 'vue';
 
-export interface CanvasStore {
+export type CanvasStore = {
   client: Ref<CanvasClient | null>;
   user: Ref<CanvasInterface.Lifecycle.User | null>;
   content: Ref<CanvasInterface.Lifecycle.Content | null>;
   isReady: Ref<boolean>;
   initializeCanvas: () => Promise<void>;
   cleanupCanvas: () => void;
-}
+};
 
 const validateHostMessage = async (
   _message: CanvasInterface.Lifecycle.InitResponse,

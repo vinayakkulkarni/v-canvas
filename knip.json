@@ -1,13 +1,34 @@
 {
   "$schema": "https://unpkg.com/knip@5/schema.json",
   "workspaces": {
-    "packages/canvas-client": {
+    ".": {
+      "entry": ["eslint.config.js"],
+      "project": "**/*.{js,ts}",
+      "ignore": ["**/*.config.{js,ts}"]
+    },
+    "packages/canvas-store": {
       "entry": ["src/index.ts"],
       "project": "**/*.ts"
     },
     "packages/canvas-module": {
       "entry": ["src/module.ts", "src/runtime/**/*.ts"],
-      "project": "**/*.ts"
+      "project": "**/*.ts",
+      "ignore": [
+        "build.config.ts",
+        "playground/nuxt.config.ts",
+        "playground/uno.config.ts"
+      ],
+      "ignoreDependencies": ["@nuxt/schema"]
     }
+  },
+  "ignoreDependencies": [
+    "@release-it/bumper",
+    "@release-it/conventional-changelog",
+    "@vinayakkulkarni/prettier-config-vue",
+    "tsup"
+  ],
+  "ignoreBinaries": ["release-it", "x", "rimraf"],
+  "rules": {
+    "unlisted": "error"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "@vinayakkulkarni/canvas-client",
+  "name": "@vinayakkulkarni/canvas-store",
   "version": "0.0.9",
   "description": "DSCVR Canvas store for using within your awesome Vue apps",
   "exports": {
@@ -36,8 +36,8 @@
     "lint": "bun run lint:eslint; bun run lint:prettier",
     "lint:eslint": "eslint .",
     "lint:eslint:fix": "eslint . --fix",
-    "lint:prettier": "prettier --check \"{,!(node_modules|dist|.nuxt)/**/}*.{js,ts}\"",
-    "lint:prettier:fix": "prettier --write \"{,!(node_modules|dist|.nuxt)/**/}*.{js,ts}\"",
+    "lint:prettier": "prettier --check \"{,!(node_modules|dist|.nuxt)/**/}*.{js,ts}\" --ignore-path ../../.gitignore",
+    "lint:prettier:fix": "prettier --write \"{,!(node_modules|dist|.nuxt)/**/}*.{js,ts}\" --ignore-path ../../.gitignore",
     "test": "bun test",
     "release": "release-it"
   },
@@ -50,10 +50,6 @@
     "vue": "^3.4.37"
   },
   "devDependencies": {
-    "@eslint/js": "^9.9.0",
-    "@typescript-eslint/eslint-plugin": "^8.1.0",
-    "@typescript-eslint/parser": "^8.1.0",
-    "eslint": "^9.9.0",
     "tsup": "^8.2.4",
     "typescript": "^5.5.4"
   },

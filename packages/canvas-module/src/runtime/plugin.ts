@@ -1,4 +1,4 @@
-import { createCanvasStore } from '@vinayakkulkarni/canvas-client';
+import { createCanvasStore } from '@vinayakkulkarni/canvas-store';
 import { defineNuxtPlugin } from '#imports';
 
 export default defineNuxtPlugin((nuxtApp) => {

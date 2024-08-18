@@ -30,6 +30,7 @@
     }
   },
   "hooks": {
+    "before:init": ["bun run lint", "bun run lint:knip"],
     "after:release": "git push origin HEAD"
   }
 }

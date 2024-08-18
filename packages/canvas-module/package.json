@@ -34,8 +34,8 @@
     "lint": "bun run lint:eslint; bun run lint:prettier",
     "lint:eslint": "eslint .",
     "lint:eslint:fix": "eslint . --fix",
-    "lint:prettier": "prettier --check \"{,!(node_modules|dist|.nuxt)/**/}*.{js,ts}\"",
-    "lint:prettier:fix": "prettier --write \"{,!(node_modules|dist|.nuxt)/**/}*.{js,ts}\"",
+    "lint:prettier": "prettier --check \"{,!(node_modules|dist|.nuxt)/**/}*.{js,ts}\" --ignore-path ../../.gitignore",
+    "lint:prettier:fix": "prettier --write \"{,!(node_modules|dist|.nuxt)/**/}*.{js,ts}\" --ignore-path ../../.gitignore",
     "test": "bun test",
     "dev": "nuxi dev",
     "release": "release-it"
@@ -46,7 +46,7 @@
   },
   "dependencies": {
     "@nuxt/kit": "^3.12.4",
-    "@vinayakkulkarni/canvas-client": "0.0.9",
+    "@vinayakkulkarni/canvas-store": "0.0.9",
     "defu": "^6.1.4"
   },
   "devDependencies": {

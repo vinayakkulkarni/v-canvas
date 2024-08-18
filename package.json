@@ -4,15 +4,15 @@
   "private": true,
   "type": "module",
   "workspaces": [
-    "packages/canvas-client",
+    "packages/canvas-store",
     "packages/canvas-module"
   ],
   "scripts": {
-    "build": "bun run --cwd packages/canvas-client build && bun run --cwd packages/canvas-module build",
-    "dev": "bun run --parallel --cwd packages/canvas-client dev --cwd packages/canvas-module dev",
+    "build": "bun run --cwd packages/canvas-store build && bun run --cwd packages/canvas-module build",
+    "dev": "bun run --parallel --cwd packages/canvas-store dev --cwd packages/canvas-module dev",
     "lint:knip": "bun x knip",
-    "lint": "bun run --cwd packages/canvas-client lint && bun run --cwd packages/canvas-module lint",
-    "test": "bun run --cwd packages/canvas-client test && bun run --cwd packages/canvas-module test",
+    "lint": "bun run --cwd packages/canvas-store lint && bun run --cwd packages/canvas-module lint",
+    "test": "bun run --cwd packages/canvas-store test && bun run --cwd packages/canvas-module test",
     "release": "npm run release --workspaces && release-it",
     "prepare": "is-ci || husky"
   },
@@ -28,15 +28,13 @@
     "@typescript-eslint/parser": "^8.1.0",
     "@vinayakkulkarni/prettier-config-vue": "^1.0.0",
     "eslint": "^9.9.0",
+    "glob": "^11.0.0",
     "husky": "^9.1.4",
     "is-ci": "^3.0.1",
     "lint-staged": "^15.2.9",
     "prettier": "^3.3.3",
     "tsup": "^8.2.4",
     "typescript": "^5.5.4"
-  },
-  "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "^4.20.0"
   },
   "packageManager": "bun@1.1.25"
 }
