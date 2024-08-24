@@ -27,7 +27,7 @@ jobs:
           bun-version: latest
 
       - name: Install dependencies 🚀
-        run: bun install --frozen-lockfile
+        run: bun install
 
       - run: npm run release
         env:
