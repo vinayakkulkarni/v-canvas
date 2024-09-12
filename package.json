@@ -17,7 +17,7 @@
     "prepare": "is-ci || husky"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.4.1",
+    "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.4.1",
     "@eslint/js": "^9.10.0",
     "@release-it/bumper": "^6.0.1",
