@@ -54,7 +54,7 @@
     "@typescript-eslint/eslint-plugin": "^8.17.0",
     "@typescript-eslint/parser": "^8.17.0",
     "eslint": "^9.16.0",
-    "prettier": "^3.4.1",
+    "prettier": "^3.4.2",
     "tsup": "^8.3.5",
     "typescript": "^5.7.2"
   },
