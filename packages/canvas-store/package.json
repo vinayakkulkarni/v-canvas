@@ -42,11 +42,11 @@
     "release": "release-it"
   },
   "peerDependencies": {
-    "@dscvr-one/canvas-client-sdk": "^1.1.0",
+    "@dscvr-one/canvas-client-sdk": "^2.0.0",
     "vue": "^3.5.11"
   },
   "dependencies": {
-    "@dscvr-one/canvas-client-sdk": "^1.1.0",
+    "@dscvr-one/canvas-client-sdk": "^2.0.0",
     "vue": "^3.5.11"
   },
   "devDependencies": {
