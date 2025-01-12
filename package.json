@@ -19,7 +19,7 @@
   "devDependencies": {
     "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
-    "@eslint/js": "^9.17.0",
+    "@eslint/js": "^9.18.0",
     "@release-it/bumper": "^7.0.0",
     "@release-it/conventional-changelog": "^10.0.0",
     "@types/node": "^22.10.5",
