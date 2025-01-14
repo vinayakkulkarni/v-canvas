@@ -54,7 +54,7 @@
     "@nuxt/module-builder": "^0.8.4",
     "@release-it/bumper": "^7.0.0",
     "@typescript-eslint/eslint-plugin": "^8.20.0",
-    "@typescript-eslint/parser": "^8.19.1",
+    "@typescript-eslint/parser": "^8.20.0",
     "eslint": "^9.17.0",
     "nuxt": "^3.15.1",
     "prettier": "^3.4.2",
