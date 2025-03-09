@@ -45,7 +45,7 @@
     "vite": "^5.4.1"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.14.1592",
+    "@nuxt/kit": "^3.16.0",
     "@vinayakkulkarni/canvas-store": "0.0.10",
     "defu": "^6.1.4"
   },
