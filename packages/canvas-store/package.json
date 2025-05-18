@@ -55,7 +55,7 @@
     "@typescript-eslint/parser": "^8.32.1",
     "eslint": "^9.26.0",
     "prettier": "^3.5.3",
-    "tsup": "^8.4.0",
+    "tsup": "^8.5.0",
     "typescript": "^5.8.3"
   },
   "keywords": [
