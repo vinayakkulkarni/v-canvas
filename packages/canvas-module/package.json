@@ -57,7 +57,7 @@
     "@typescript-eslint/parser": "^8.48.0",
     "eslint": "^9.39.1",
     "nuxt": "^4.2.1",
-    "prettier": "^3.7.1",
+    "prettier": "^3.7.3",
     "rimraf": "^6.1.2",
     "typescript": "^5.9.3"
   },
