@@ -1,6 +1,11 @@
-import { CanvasClient } from '@dscvr-one/canvas-client-sdk';
-import { ref } from 'vue';
-import type { CanvasInterface } from '@dscvr-one/canvas-client-sdk';
+// canvas-client-sdk@2.0.0 points `main` at `src/index.ts`, which is not in
+// the published tarball. The built entry is fine, so import it directly.
+import {
+  CanvasClient,
+  isIframeContext,
+} from '@dscvr-one/canvas-client-sdk/dist/index.js';
+import type { CanvasInterface } from '@dscvr-one/canvas-client-sdk/dist/index.js';
+import { ref, shallowRef } from 'vue';
 import type { Ref } from 'vue';
 
 export type CanvasStore = {
@@ -12,15 +17,10 @@ export type CanvasStore = {
   cleanupCanvas: () => void;
 };
 
-const validateHostMessage = async (
-  _message: CanvasInterface.Lifecycle.InitResponse,
-): Promise<boolean> => {
-  // Implement your validation logic here
-  return true; // Placeholder return
-};
-
 export const createCanvasStore = (): CanvasStore => {
-  const client = ref<CanvasClient | null>(null);
+  // shallowRef: the SDK client is a class instance with private fields; a
+  // deep ref would proxy it and change its type.
+  const client = shallowRef<CanvasClient | null>(null);
   const user = ref<CanvasInterface.Lifecycle.User | null>(null);
   const content = ref<CanvasInterface.Lifecycle.Content | null>(null);
   const isReady = ref(false);
@@ -28,20 +28,25 @@ export const createCanvasStore = (): CanvasStore => {
   const initializeCanvas = async () => {
     if (client.value) return;
 
-    const newClient = new CanvasClient();
+    // Outside a DSCVR host frame the handshake never gets an answer, so
+    // settle straight away instead of waiting forever.
+    if (!isIframeContext()) {
+      isReady.value = true;
+      return;
+    }
 
     try {
+      // The constructor throws when the frame has no referrer.
+      const newClient = new CanvasClient();
       const response = await newClient.ready();
-      const isValidResponse = await validateHostMessage(response);
-      if (isValidResponse) {
-        client.value = newClient;
-        user.value = response.untrusted.user!;
-        content.value = response.untrusted.content!;
-        isReady.value = true;
-      }
+      client.value = newClient;
+      user.value = response.untrusted.user ?? null;
+      content.value = response.untrusted.content ?? null;
     } catch {
-      isReady.value = true;
+      // No usable host (for example a frame without a referrer): the app
+      // still renders, just without a client.
     }
+    isReady.value = true;
   };
 
   const cleanupCanvas = () => {
@@ -53,8 +58,9 @@ export const createCanvasStore = (): CanvasStore => {
       isReady.value = false;
     }
   };
+
   return {
-    client: client as Ref<CanvasClient | null>,
+    client,
     user,
     content,
     isReady,

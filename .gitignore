@@ -100,3 +100,6 @@ test/e2e/videos/*.mp4
 .cache
 dist
 package-lock.json
+
+# Cloudflare
+.wrangler

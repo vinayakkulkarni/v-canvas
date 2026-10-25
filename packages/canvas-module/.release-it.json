@@ -1,15 +1,11 @@
 {
-  "$schema": "https://unpkg.com/release-it@17/schema/release-it.json",
+  "$schema": "https://unpkg.com/release-it@21/schema/release-it.json",
   "git": false,
-  "hooks": {
-    "after:bump": ["bun run build"]
+  "npm": {
+    "publish": false
   },
-  "plugins": {
-    "@release-it/bumper": {
-      "out": {
-        "file": "package.json",
-        "path": "dependencies.@vinayakkulkarni/canvas-store"
-      }
-    }
+  "hooks": {
+    "after:bump": ["pnpm run build"],
+    "after:release": "pnpm publish --access public --no-git-checks"
   }
 }

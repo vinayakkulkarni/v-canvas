@@ -2,89 +2,75 @@
   "name": "@vinayakkulkarni/canvas-module",
   "version": "0.0.10",
   "description": "DSCVR Canvas module for your awesome Nuxt app(s)",
-  "exports": {
-    ".": {
-      "require": {
-        "types": "./dist/module.d.cts",
-        "default": "./dist/module.cjs"
-      },
-      "import": {
-        "types": "./dist/module.d.mts",
-        "default": "./dist/module.mjs"
-      },
-      "types": "./dist/module.d.ts",
-      "default": "./dist/module.mjs"
-    }
-  },
-  "main": "./dist/module.cjs",
-  "module": "./dist/module.mjs",
-  "types": "./dist/types.d.ts",
-  "files": [
-    "dist",
-    "*.d.ts",
-    "*.cjs",
-    "*.mjs"
-  ],
-  "scripts": {
-    "prebuild": "bun postinstall",
-    "postinstall": "nuxi prepare",
-    "build:stub": "nuxt-build-module --stub",
-    "build:module": "nuxt-build-module",
-    "build": "rimraf dist && bun build:module",
-    "lint": "bun run lint:eslint; bun run lint:prettier",
-    "lint:eslint": "eslint .",
-    "lint:eslint:fix": "eslint . --fix",
-    "lint:prettier": "prettier --check \"{,!(node_modules|dist|.nuxt)/**/}*.{js,ts}\" --ignore-path ../../.gitignore",
-    "lint:prettier:fix": "prettier --write \"{,!(node_modules|dist|.nuxt)/**/}*.{js,ts}\" --ignore-path ../../.gitignore",
-    "test": "bun test",
-    "dev": "nuxi dev",
-    "release": "release-it"
-  },
-  "peerDependencies": {
-    "nuxt": "^4.4.6",
-    "vite": "^5.4.1"
-  },
-  "dependencies": {
-    "@nuxt/kit": "^3.17.4",
-    "@vinayakkulkarni/canvas-store": "0.0.10",
-    "defu": "^6.1.4"
-  },
-  "devDependencies": {
-    "@eslint/js": "^10.0.1",
-    "@nuxt/module-builder": "^1.0.2",
-    "@release-it/bumper": "^7.0.5",
-    "@typescript-eslint/eslint-plugin": "^8.59.4",
-    "@typescript-eslint/parser": "^8.59.3",
-    "eslint": "^10.3.0",
-    "nuxt": "^4.4.6",
-    "prettier": "^3.8.3",
-    "rimraf": "^6.1.3",
-    "typescript": "^6.0.3"
-  },
   "keywords": [
-    "Nuxt.js",
     "Canvas",
     "DSCVR Canvas",
     "DSCVR Canvas Store",
     "Nuxt Canvas",
+    "Nuxt Canvas Module",
     "Nuxt DSCVR Canvas Module",
-    "Nuxt Canvas Module"
+    "Nuxt.js"
   ],
+  "homepage": "https://v-canvas.vinayakkulkarni.dev",
+  "bugs": {
+    "url": "https://github.com/vinayakkulkarni/v-canvas/issues"
+  },
+  "license": "MIT",
   "author": {
     "name": "Vinayak Kulkarni",
     "email": "inbox.vinayak@gmail.com",
     "url": "https://vinayakkulkarni.dev"
   },
-  "license": "MIT",
-  "type": "module",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vinayakkulkarni/v-canvas.git"
+    "url": "git+https://github.com/vinayakkulkarni/v-canvas.git",
+    "directory": "packages/canvas-module"
   },
-  "private": false,
+  "files": [
+    "dist"
+  ],
+  "type": "module",
   "sideEffects": false,
-  "bugs": {
-    "url": "https://github.com/vinayakkulkarni/v-canvas/issues"
+  "main": "./dist/module.mjs",
+  "types": "./dist/types.d.mts",
+  "typesVersions": {
+    "*": {
+      ".": [
+        "./dist/types.d.mts"
+      ]
+    }
   },
-  "homepage": "https://github.com/vinayakkulkarni/v-canvas#readme"
+  "exports": {
+    ".": {
+      "types": "./dist/types.d.mts",
+      "import": "./dist/module.mjs"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "nuxt-module-build build",
+    "prepare:types": "nuxt-module-build build --stub && nuxt-module-build prepare",
+    "typecheck": "pnpm run prepare:types && vue-tsc --noEmit",
+    "test": "vp test run",
+    "release": "release-it"
+  },
+  "dependencies": {
+    "@nuxt/kit": "catalog:",
+    "@vinayakkulkarni/canvas-store": "workspace:^",
+    "defu": "^6.1.7"
+  },
+  "devDependencies": {
+    "@nuxt/module-builder": "^1.0.3",
+    "@nuxt/schema": "catalog:",
+    "nuxt": "catalog:",
+    "typescript": "catalog:",
+    "vite-plus": "catalog:",
+    "vue": "catalog:",
+    "vue-tsc": "catalog:"
+  },
+  "peerDependencies": {
+    "nuxt": "^4.0.0"
+  }
 }
