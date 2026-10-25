@@ -7,7 +7,7 @@ import {
 } from '@nuxt/kit';
 import { defu } from 'defu';
 
-const NAME = 'nuxt-canvas' as const;
+const NAME = 'nuxt-canvas';
 
 export type ModuleOptions = Record<string, unknown>;
 
@@ -15,43 +15,27 @@ export default defineNuxtModule<ModuleOptions>({
   meta: {
     name: NAME,
     configKey: NAME,
+    compatibility: { nuxt: '>=4.0.0' },
   },
   setup(userOptions, nuxt) {
     const logger = useLogger(NAME);
     const { resolve } = createResolver(import.meta.url);
 
-    logger.info(`Adding ${NAME} module...`, userOptions);
-    // 1. Set up runtime configuration
-    const options = defu(
+    // Expose the options on the public runtime config.
+    nuxt.options.runtimeConfig.public[NAME] = defu(
       nuxt.options.runtimeConfig.public[NAME],
       userOptions,
-      {},
     );
-    nuxt.options.runtimeConfig.public[NAME] = options;
 
-    // 3. Add composables
-    addImports([
-      {
-        name: 'useCanvas',
-        from: resolve('./runtime/composables/useCanvas'),
-      },
-    ]);
-
-    // 4. Add types
-    const filename = `types/${NAME}.d.ts`;
-
-    nuxt.hook('prepare:types', (options) => {
-      options.references.push({
-        path: resolve(nuxt.options.buildDir, filename),
-      });
+    addImports({
+      name: 'useCanvas',
+      from: resolve('./runtime/composables/useCanvas'),
     });
 
-    // 5. Add plugin & middleware
-    addPlugin({
-      src: resolve('runtime/plugin'),
-      mode: 'all',
-    });
+    // Both sides: useCanvas() works during SSR (empty, not ready); the SDK
+    // client itself starts on `app:mounted`, in the browser only.
+    addPlugin(resolve('./runtime/plugin'));
 
-    logger.success(`Added ${NAME} module successfully.`);
+    logger.success(`Added ${NAME} module.`);
   },
 });

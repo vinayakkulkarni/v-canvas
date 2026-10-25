@@ -2,84 +2,69 @@
   "name": "@vinayakkulkarni/canvas-store",
   "version": "0.0.10",
   "description": "DSCVR Canvas store for using within your awesome Vue apps",
-  "exports": {
-    ".": {
-      "require": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
-      },
-      "import": {
-        "types": "./dist/index.d.mts",
-        "default": "./dist/index.mjs"
-      },
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.mjs"
-    },
-    "./package.json": "./package.json"
-  },
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "files": [
-    "dist",
-    "*.d.ts",
-    "*.js",
-    "*.cjs",
-    "*.mjs"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts --tsconfig ./tsconfig.json",
-    "dev": "tsup src/index.ts --format cjs,esm --dts --watch --tsconfig ./tsconfig.json",
-    "lint": "bun run lint:eslint; bun run lint:prettier",
-    "lint:eslint": "eslint .",
-    "lint:eslint:fix": "eslint . --fix",
-    "lint:prettier": "prettier --check \"{,!(node_modules|dist|.nuxt)/**/}*.{js,ts}\" --ignore-path ../../.gitignore",
-    "lint:prettier:fix": "prettier --write \"{,!(node_modules|dist|.nuxt)/**/}*.{js,ts}\" --ignore-path ../../.gitignore",
-    "test": "bun test",
-    "release": "release-it"
-  },
-  "peerDependencies": {
-    "@dscvr-one/canvas-client-sdk": "^1.1.0",
-    "vue": "^3.5.16"
-  },
-  "dependencies": {
-    "@dscvr-one/canvas-client-sdk": "^1.1.0",
-    "vue": "^3.5.16"
-  },
-  "devDependencies": {
-    "@eslint/js": "^10.0.1",
-    "@typescript-eslint/eslint-plugin": "^8.59.4",
-    "@typescript-eslint/parser": "^8.59.3",
-    "eslint": "^10.3.0",
-    "prettier": "^3.8.3",
-    "tsup": "^8.5.1",
-    "typescript": "^6.0.3"
-  },
   "keywords": [
-    "Vue.js",
-    "DSCVR-Canvas",
     "Canvas App",
     "Canvas Store",
+    "DSCVR-Canvas",
     "Vue Canvas",
-    "Vue DSCVR Canvas"
+    "Vue DSCVR Canvas",
+    "Vue.js"
   ],
+  "homepage": "https://v-canvas.vinayakkulkarni.dev",
+  "bugs": {
+    "url": "https://github.com/vinayakkulkarni/v-canvas/issues"
+  },
+  "license": "MIT",
   "author": {
     "name": "Vinayak Kulkarni",
     "email": "inbox.vinayak@gmail.com",
     "url": "https://vinayakkulkarni.dev"
   },
-  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vinayakkulkarni/v-canvas.git"
+    "url": "git+https://github.com/vinayakkulkarni/v-canvas.git",
+    "directory": "packages/canvas-store"
   },
-  "private": false,
+  "files": [
+    "dist"
+  ],
+  "type": "module",
   "sideEffects": false,
-  "bugs": {
-    "url": "https://github.com/vinayakkulkarni/v-canvas/issues"
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
   },
-  "homepage": "https://github.com/vinayakkulkarni/v-canvas#readme"
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "vp pack",
+    "dev": "vp pack --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vp test run",
+    "release": "release-it"
+  },
+  "dependencies": {
+    "@dscvr-one/canvas-client-sdk": "^2.0.0"
+  },
+  "devDependencies": {
+    "typescript": "catalog:",
+    "vite-plus": "catalog:",
+    "vue": "catalog:"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.0"
+  }
 }

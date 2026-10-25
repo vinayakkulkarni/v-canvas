@@ -1,5 +1,5 @@
 {
-  "$schema": "https://unpkg.com/release-it@17/schema/release-it.json",
+  "$schema": "https://unpkg.com/release-it@21/schema/release-it.json",
   "git": {
     "commitMessage": "chore: release v${version}",
     "push": true,
@@ -30,7 +30,7 @@
     }
   },
   "hooks": {
-    "before:init": ["bun run lint", "bun run lint:knip"],
+    "before:init": ["pnpm run lint", "pnpm run lint:knip"],
     "after:release": "git push origin HEAD"
   }
 }

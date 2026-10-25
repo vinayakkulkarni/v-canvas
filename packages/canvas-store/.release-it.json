@@ -1,7 +1,11 @@
 {
-  "$schema": "https://unpkg.com/release-it@17/schema/release-it.json",
+  "$schema": "https://unpkg.com/release-it@21/schema/release-it.json",
   "git": false,
+  "npm": {
+    "publish": false
+  },
   "hooks": {
-    "after:bump": ["bun run build"]
+    "after:bump": ["pnpm run build"],
+    "after:release": "pnpm publish --access public --no-git-checks"
   }
 }

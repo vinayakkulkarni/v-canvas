@@ -1,42 +1,15 @@
 {
-  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "$schema": "https://unpkg.com/knip@6/schema.json",
   "workspaces": {
-    ".": {
-      "entry": ["eslint.config.js"],
-      "project": "**/*.{js,ts}",
-      "ignore": ["**/*.config.{js,ts}"]
-    },
+    ".": {},
     "packages/canvas-store": {
-      "entry": ["src/index.ts"],
-      "project": "**/*.ts",
-      "ignoreDependencies": [
-        "@eslint/js",
-        "@typescript-eslint/eslint-plugin",
-        "@typescript-eslint/parser"
-      ]
+      "entry": ["src/index.ts"]
     },
     "packages/canvas-module": {
-      "entry": ["src/module.ts", "src/runtime/**/*.ts"],
-      "project": "**/*.ts",
-      "ignore": [
-        "build.config.ts",
-        "playground/nuxt.config.ts",
-        "playground/uno.config.ts"
-      ],
-      "ignoreDependencies": [
-        "@eslint/js",
-        "@typescript-eslint/eslint-plugin",
-        "@typescript-eslint/parser",
-        "@nuxt/schema"
-      ]
+      "entry": ["src/runtime/**/*.ts"]
+    },
+    "demo": {
+      "ignoreDependencies": ["vue"]
     }
-  },
-  "ignoreDependencies": [
-    "@release-it/bumper",
-    "@release-it/conventional-changelog"
-  ],
-  "ignoreBinaries": ["release-it", "x"],
-  "rules": {
-    "unlisted": "error"
   }
 }

@@ -2,36 +2,55 @@
   "name": "v-canvas",
   "version": "0.2.1",
   "private": true,
+  "description": "DSCVR Canvas store for Vue and module for Nuxt",
+  "homepage": "https://v-canvas.vinayakkulkarni.dev",
+  "bugs": {
+    "url": "https://github.com/vinayakkulkarni/v-canvas/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Vinayak Kulkarni",
+    "email": "inbox.vinayak@gmail.com",
+    "url": "https://vinayakkulkarni.dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vinayakkulkarni/v-canvas.git"
+  },
   "type": "module",
-  "workspaces": [
-    "packages/canvas-store",
-    "packages/canvas-module"
-  ],
   "scripts": {
-    "build": "bun run --cwd packages/canvas-store build && bun run --cwd packages/canvas-module build",
-    "dev": "bun run --parallel --cwd packages/canvas-store dev --cwd packages/canvas-module dev",
-    "lint:knip": "bun x knip",
-    "lint": "bun run --cwd packages/canvas-store lint && bun run --cwd packages/canvas-module lint",
-    "test": "bun run --cwd packages/canvas-store test && bun run --cwd packages/canvas-module test",
-    "release": "npm run release --workspaces && release-it",
+    "lint": "vp lint",
+    "lint:fix": "vp lint --fix",
+    "lint:knip": "knip",
+    "format": "vp fmt",
+    "format:check": "vp fmt --check",
+    "typecheck": "pnpm --filter @vinayakkulkarni/canvas-store run build && pnpm -r run typecheck",
+    "test": "pnpm -r run test",
+    "build": "pnpm --filter @vinayakkulkarni/canvas-store run build && pnpm --filter @vinayakkulkarni/canvas-module run build",
+    "build:demo": "pnpm --filter v-canvas-demo run build",
+    "dev:demo": "pnpm --filter v-canvas-demo run dev",
+    "deploy": "pnpm --filter v-canvas-demo run deploy",
+    "release": "pnpm -r run release && release-it",
     "prepare": "is-ci || husky"
   },
   "devDependencies": {
-    "@commitlint/cli": "^21.0.0",
-    "@commitlint/config-conventional": "^20.5.3",
-    "@eslint/js": "^10.0.1",
-    "@release-it/bumper": "^7.0.5",
-    "@release-it/conventional-changelog": "^11.0.0",
-    "@types/node": "^25.8.0",
-    "@typescript-eslint/eslint-plugin": "^8.59.4",
-    "@typescript-eslint/parser": "^8.59.3",
-    "eslint": "^10.3.0",
-    "glob": "^13.0.6",
+    "@commitlint/cli": "^21.2.4",
+    "@commitlint/config-conventional": "^21.2.4",
+    "@release-it/conventional-changelog": "^12.0.2",
+    "@types/node": "^26.6.5",
     "husky": "^9.1.7",
     "is-ci": "^4.1.0",
-    "lint-staged": "^17.0.5",
-    "prettier": "^3.8.3",
-    "typescript": "^6.0.3"
+    "knip": "^6.43.0",
+    "lint-staged": "^17.6.0",
+    "release-it": "^21.1.1",
+    "typescript": "^6.0.3",
+    "vite-plus": "^1.4.0"
   },
-  "packageManager": "bun@1.1.25"
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": ">=26.x"
+    }
+  },
+  "packageManager": "pnpm@12.15.0+sha512.b3951d6d6ff4a9f13dc7cf56cd28d2b8eb37dbcc9c68e52e1e1191873ea9f82a017287ab50baadc5ccc494f036c67c0e47eb13608c2fa36f47711b61ea128e61"
 }
