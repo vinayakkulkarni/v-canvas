@@ -1,10 +1,12 @@
 # v-canvas
 
+**[Live demo](https://v-canvas.vinayakkulkarni.dev?utm_source=github&utm_medium=readme&utm_campaign=v-canvas)** · [npm: canvas-module](https://www.npmjs.com/package/@vinayakkulkarni/canvas-module) · [npm: canvas-store](https://www.npmjs.com/package/@vinayakkulkarni/canvas-store)
+
 DSCVR Canvas for Vue 3 and Nuxt 4: a reactive store around the
 [canvas client SDK](https://github.com/dscvr-one/dscvr-canvas) and a Nuxt
 module that installs it.
 
-**Demo:** [v-canvas.vinayakkulkarni.dev](https://v-canvas.vinayakkulkarni.dev) —
+**Demo:** [v-canvas.vinayakkulkarni.dev](https://v-canvas.vinayakkulkarni.dev?utm_source=github&utm_medium=readme&utm_campaign=v-canvas) —
 the module runs in a frame against a simulated DSCVR host, and every SDK
 message shows on the page.
 
@@ -77,6 +79,17 @@ pnpm run build         # both packages
 pnpm run deploy        # build the demo and deploy it to Cloudflare Workers
 ```
 
+## More from the author
+
+- [v-tweakpane](https://v-tweakpane.vinayakkulkarni.dev?utm_source=github&utm_medium=readme&utm_campaign=v-canvas) — Vue 3 wrapper for Tweakpane GUI panels
+- [v-clappr](https://v-clappr.vinayakkulkarni.dev?utm_source=github&utm_medium=readme&utm_campaign=v-canvas) — Vue 3 wrapper for the Clappr media player
+- [v-pip](https://v-pip.vinayakkulkarni.dev?utm_source=github&utm_medium=readme&utm_campaign=v-canvas) — Vue 3 wrapper for the Picture-in-Picture API
+- [v-image](https://v-image.vinayakkulkarni.dev?utm_source=github&utm_medium=readme&utm_campaign=v-canvas) — Vue 3 file input with image preview
+- [nxui](https://nxui.geoql.in?utm_source=github&utm_medium=readme&utm_campaign=v-canvas) — animated copy-paste UI components for Vue 3 and Nuxt
+- [shadscan-vue](https://shadscan-vue.geoql.in?utm_source=github&utm_medium=readme&utm_campaign=v-canvas) — UI-fundamentals audit for shadcn-vue apps
+
+See every project at [vinayakkulkarni.dev/projects](https://vinayakkulkarni.dev/projects?utm_source=github&utm_medium=readme&utm_campaign=v-canvas) and [geoql.in](https://geoql.in?utm_source=github&utm_medium=readme&utm_campaign=v-canvas).
+
 ## License
 
-MIT © [Vinayak Kulkarni](https://vinayakkulkarni.dev)
+MIT © [Vinayak Kulkarni](https://vinayakkulkarni.dev?utm_source=github&utm_medium=readme&utm_campaign=v-canvas)
